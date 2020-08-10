@@ -39,6 +39,4 @@ let c: Vector = new Vector([5, 6, 7, 8]);     // should return a new Vector([4, 
 console.log(a.subtract(b)); // should return a new Vector([-2, -2, -2])
 console.log(a.dot(b))   // should return 1*3 + 2*4 + 3*5 = 26
 console.log(a.norm());      // should return sqrt(1^2 + 2^2 + 3^2) = sqrt(14)
-// console.log(a.add(c));
-
 console.log(a.valueOf() + b.valueOf());
