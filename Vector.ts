@@ -18,12 +18,12 @@ class Vector {
         return new Vector(someVector.startNums.map((num: number, index: number): number =>  this.startNums[index] - num))
     }
     public dot(someVector: {startNums: number[]}): number {
-        let d = 0;
+        let d: number = 0;
         someVector.startNums.forEach((num: number, index: number): number => d += num * this.startNums[index])
         return d;
     }
     public norm(): number {
-        let n = 0;
+        let n: number = 0;
         this.startNums.forEach((num: number): number => n += num ** 2)
         return n;
     }
