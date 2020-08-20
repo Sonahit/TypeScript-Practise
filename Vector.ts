@@ -14,7 +14,7 @@ class Vector {
 
     public subtract(vector : Vector): Vector {
         if (vector.startNums.length !== this.startNums.length) {
-            throw new Error("Vectors with different lengths!");
+            throw new Error("Vectors length are not same");
         }
 
         return new Vector(vector.startNums.map((num, index) =>  this.startNums[index] - num));
