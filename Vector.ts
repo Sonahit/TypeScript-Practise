@@ -1,35 +1,34 @@
 // Vector from codewars
 
 class Vector {
-    public startNums: number[]
-    constructor(startNum: number[]) {
-        this.startNums = startNum
-    }
-    public add(someVector: {startNums: number[]}): Vector {
-        if (someVector.startNums.length !== this.startNums.length) {
-            throw new Error("Vectors with different lengths!");
-        }
-        return new Vector(someVector.startNums.map((num: number, index: number) : number => num + this.startNums[index]));
-    }
-    public subtract(someVector : {startNums: number[]}): Vector {
-        if (someVector.startNums.length !== this.startNums.length) {
-            throw new Error("Vectors with different lengths!");
-        }
-        return new Vector(someVector.startNums.map((num: number, index: number): number =>  this.startNums[index] - num))
-    }
-    public dot(someVector: {startNums: number[]}): number {
-        let d: number = 0;
-        someVector.startNums.forEach((num: number, index: number): number => d += num * this.startNums[index])
-        return d;
-    }
-    public norm(): number {
-        let n: number = 0;
-        this.startNums.forEach((num: number): number => n += num ** 2)
-        return n;
-    }
-    valueOf ():number {
-        return this.startNums.reduce((acc: number, num: number) => acc += num);
-    }
-     
-}
 
+    constructor(public startNums: number[]) {}
+
+    public add(vector: Vector): Vector {
+        if (vector.startNums.length !== this.startNums.length) {
+            throw new Error("Vectors length are not same");
+        }
+
+        return new Vector(vector.startNums.map((num, index) => num + this.startNums[index]));
+    }
+
+    public subtract(vector : Vector): Vector {
+        if (vector.startNums.length !== this.startNums.length) {
+            throw new Error("Vectors with different lengths!");
+        }
+
+        return new Vector(vector.startNums.map((num, index) =>  this.startNums[index] - num));
+    }
+
+    public dot(vector: Vector): number {
+        return vector.startNums.reduce((acc, num, index) => acc += num * this.startNums[index], 0);
+    }
+
+    public norm(): number {
+        return this.startNums.reduce((acc, num) => acc += num ** 2, 0);
+    }
+
+    valueOf(): number {
+        return this.startNums.reduce((acc, num) => acc += num, 0);
+    }
+}
